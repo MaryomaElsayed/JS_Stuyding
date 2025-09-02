@@ -39,23 +39,9 @@ console.log(result4); // "missing"
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// The Conditional (Ternary) Operator
+// The conditional operator is a shorthand for writing conditional if...else statements.
+let voteable = (age < 18) ? "Too young":"Old enough";
 
 
 
