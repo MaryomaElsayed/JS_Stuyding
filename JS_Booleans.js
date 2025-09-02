@@ -1,0 +1,6 @@
+/* Key Boolean Characteristics
+true and false are boolean data types
+true and false are the only possible boolean values
+true and false must be written in lowercase
+true and false must be written without quotes
+*/
