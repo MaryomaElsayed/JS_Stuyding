@@ -78,3 +78,8 @@ const arrPerson = Object.fromEntries(arr);
 
 console.log(arrPerson);
 // output = { name: "Ahmed", age: 25, city: "Cairo" }
+
+
+
+// [5] Object.assign():
+// c
