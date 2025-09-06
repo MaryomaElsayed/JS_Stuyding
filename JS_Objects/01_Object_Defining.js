@@ -27,8 +27,10 @@ const New_Human = new Object({
 });
 
 
-// [3] Object.create()
 
+
+
+// [3] Object.create()
 // The "base" object
 const person = {
   firstName: "John",
@@ -48,15 +50,17 @@ man.firstName = "Peter"; // adds a new property on "man"
 console.log("\nAfter setting man.firstName = 'Peter':");
 console.log("man.firstName:", man.firstName);   // → "Peter" (own property)
 console.log("person.firstName:", person.firstName); // → "John" (unchanged)
-console.log("man.__proto__.firstName:", man.__proto__.firstName); // → "John"
+console.log("Object.getPrototypeOf(man).firstName:", Object.getPrototypeOf(man).firstName); // → "John"
 
 // --- CASE 2: Modifying the prototype property directly ---
-man.__proto__.firstName = "Michael"; // changes "person.firstName"
+// man.__proto__.firstName = "Michael"; // ❌ مش موصى بيها
 
-console.log("\nAfter changing man.__proto__.firstName = 'Michael':");
+Object.getPrototypeOf(man).firstName = "Michael"; // ✅ الطريقة الأصح
+
+console.log("\nAfter changing prototype firstName = 'Michael':");
 console.log("man.firstName:", man.firstName);   // → "Peter" (still own property)
 console.log("person.firstName:", person.firstName); // → "Michael"
-console.log("man.__proto__.firstName:", man.__proto__.firstName); // → "Michael"
+console.log("Object.getPrototypeOf(man).firstName:", Object.getPrototypeOf(man).firstName); // → "Michael"
 
 
 
@@ -81,5 +85,38 @@ console.log(arrPerson);
 
 
 
+
+
 // [5] Object.assign():
-// c
+// ---------- Example 1: Merging objects ----------
+const objA = { a: 1, b: 2 };
+const objB = { b: 3, c: 4 };
+
+// Merge into target (objA is modified)
+Object.assign(objA, objB);
+console.log("Merge (target modified):", objA); 
+// { a: 1, b: 3, c: 4 }
+
+// Merge into a new object (objA untouched)
+const merged = Object.assign({}, objA, objB);
+console.log("Merge (new object):", merged); 
+// { a: 1, b: 3, c: 4 }
+
+
+// ---------- Example 2: Cloning (shallow copy) ----------
+const user = { name: "Ahmed", age: 25 };
+
+// Clone into a new object
+const clone = Object.assign({}, user);
+console.log("Clone:", clone); 
+// { name: "Ahmed", age: 25 }
+
+
+// ---------- Example 3: Adding new properties ----------
+const personaa = { name: "Sara" };
+
+// Add directly into target (person is modified)
+Object.assign(personaa, { age: 22, city: "Cairo" });
+console.log("Add new props:", personaa); 
+// { name: "Sara", age: 22, city: "Cairo" }
+
