@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DOM</title>
+</head>
+<body>
+	<p id="p1">Hello World!</p>
+	<img id="myImage" src="smiley.gif">
+
+
+	<script>
+		// [1] Changing HTML Content
+		// The easiest way to modify the content of an HTML element is by using the innerHTML property.
+		// To change the content of an HTML element, use this syntax:
+
+		// ** document.getElementById(id).innerHTML = new HTML
+		document.getElementById("p1").innerHTML = "New text!";
+
+
+ 		// [2] Changing the Value of an Attribute
+		// A JavaScript changes the src attribute of that element from "smiley.gif" to "landscape.jpg"
+		document.getElementById("myImage").src = "landscape.jpg"
+	</script>
+
+</body>
+</html>
